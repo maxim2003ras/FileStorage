@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/file_storage
+    password: bestuser
+    username: bestuser
+
+server:
+  port: 8081
