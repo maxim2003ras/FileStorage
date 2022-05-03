@@ -1,30 +1,38 @@
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <title>Registration</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all"
-          href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/registration.css}" />
 </head>
 
 <body>
 
 <div class="registration-box">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Давайте создадим аккаунт!</div>
     <form action="#" th:action="@{/register}" th:object="${userData}" method="post">
         <div class="alert alert-danger" th:if="${#fields.hasErrors('*')}">
             <p th:each="err : ${#fields.errors('*')}" th:text="${err}"></p>
         </div>
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Введите Email" th:field="*{email}" th:errorclass="is-invalid" name="email" id="email" required>
-
-        <label for="username"><b>Имя пользователя</b></label>
-        <input type="text" placeholder="Введите login" th:field="*{username}" th:errorclass="is-invalid" name="username" id="username" required>
-
-        <label for="psw-repeat"><b>Пароль</b></label>
-        <input type="password" placeholder="Введите пароль" th:field="*{password}" th:errorclass="is-invalid" name="psw-repeat" id="psw-repeat" required>
-        <hr>
-        <button type="submit" class="registerbtn">Register</button>
+        <div class="input-container ic1">
+            <input class="input" type="text" placeholder=" " th:field="*{email}" th:errorclass="is-invalid" name="email" id="email" required>
+            <div class="cut"></div>
+            <label for="email" class="placeholder">Email</label>
+        </div>
+        <div class="input-container ic2">
+            <input class="input" type="text" placeholder=" " th:field="*{username}" th:errorclass="is-invalid" name="username" id="username" required>
+            <div class="cut"></div>
+            <label for="username" class="placeholder">Имя пользователя</label>
+        </div>
+        <div class="input-container ic2">
+            <input class="input" type="text" placeholder=" " th:field="*{password}" th:errorclass="is-invalid" name="psw-repeat" id="psw-repeat" required>
+            <div class="cut"></div>
+            <label for="psw-repeat" class="placeholder">Пароль</label>
+        </div>
+        <button type="submit" class="submit">Зарегистрироваться</button>
     </form>
 </div>
 

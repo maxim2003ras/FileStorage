@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/login.css}" />
+</head>
+
+<body>
+
+<div class="registration-box">
+    <div class="title">Welcome</div>
+    <div class="subtitle">Войдите в аккаунт</div>
+    <form action="#" th:action="@{/login}" method="post">
+        <div th:if="${param.error}">
+            <div class="alert alert-danger">
+                Invalid username or password.
+            </div>
+        </div>
+        <div class="input-container ic1">
+            <input class="input" type="text" placeholder=" " name="username" id="email" required>
+            <div class="cut"></div>
+            <label for="email" class="placeholder">Email</label>
+        </div>
+        <div class="input-container ic2">
+            <input class="input" type="text" placeholder=" " name="password" id="password" required>
+            <div class="cut"></div>
+            <label for="password" class="placeholder">Пароль</label>
+        </div>
+        <button type="submit" class="submit">Войти</button>
+    </form>
+</div>
+
+</body>
+
+</html>

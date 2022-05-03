@@ -27,7 +27,7 @@ public class AppUserServiceImpl implements AppUserService{
     @Override
     public void register(final UserData user) throws UserAlreadyExistsException {
         if (checkIfUserExist(user.getEmail())) {
-            throw new UserAlreadyExistsException("User with this email has been already created!");
+            throw new UserAlreadyExistsException("Пользователь с указанным email уже существует!");
         }
         AppUser newUser = new AppUser();
         BeanUtils.copyProperties(user, newUser);

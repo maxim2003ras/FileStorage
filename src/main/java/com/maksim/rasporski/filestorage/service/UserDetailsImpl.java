@@ -8,6 +8,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -17,12 +18,14 @@ import java.util.Set;
 public class UserDetailsImpl implements UserDetails {
     private final String username;
     private final String password;
-    private Set<GrantedAuthority> userRoles;
+    private Set<GrantedAuthority> userRoles = new HashSet<>();
 
     public UserDetailsImpl(final AppUser user) {
         username = user.getEmail().toLowerCase();
         password = user.getPassword();
-        userRoles.add(new SimpleGrantedAuthority(user.getRoles().getRole().toUpperCase()));
+        if (user.getRoles() != null) {
+            userRoles.add(new SimpleGrantedAuthority(user.getRoles().getRole().toUpperCase()));
+        }
     }
 
     @Override
