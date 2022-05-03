@@ -2,7 +2,9 @@ package com.maksim.rasporski.filestorage.service;
 
 import com.maksim.rasporski.filestorage.entity.AppUser;
 import com.maksim.rasporski.filestorage.exception.UserAlreadyExistsException;
+import com.maksim.rasporski.filestorage.model.UserData;
 import com.maksim.rasporski.filestorage.repository.UserRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,12 +25,14 @@ public class AppUserServiceImpl implements AppUserService{
     }
 
     @Override
-    public void register(final AppUser user) throws UserAlreadyExistsException {
+    public void register(final UserData user) throws UserAlreadyExistsException {
         if (checkIfUserExist(user.getEmail())) {
             throw new UserAlreadyExistsException("User with this email has been already created!");
         }
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
+        AppUser newUser = new AppUser();
+        BeanUtils.copyProperties(user, newUser);
+        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        userRepository.save(newUser);
     }
 
     @Override
