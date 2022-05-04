@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>All files</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/home.css}" />
+</head>
+
+<body>
+
+<h2>All Uploaded Files:</h2>
+<ul>
+    <li th:each="file : ${files}">
+        <a th:href="${file}" target="_blank" th:text="${file}"></a>
+    </li>
+</ul>
+
+</body>
+
+</html>
+
+
+

@@ -6,6 +6,12 @@ spring:
     url: jdbc:mysql://localhost:3306/file_storage
     password: bestuser
     username: bestuser
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      file-size-threshold: 2KB
+      max-request-size: 215MB
 
 server:
   port: 8081

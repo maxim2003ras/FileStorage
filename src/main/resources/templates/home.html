@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <title>File Storage</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/home.css}" />
+</head>
+
+<body>
+
+<div class="all-buttons">
+  <div class="add-file-button">
+    <form th:action="@{/upload}" enctype="multipart/form-data" method="post">
+      <input type="file" name="file"> <br/><br/>
+      <button class="button-5" role="button" type="submit">Добавить файл</button>
+    </form>
+  </div>
+  <div class="all-files-button">
+    <form th:action="@{/files}" enctype="multipart/form-data">
+      <button class="button-5 all-files" role="button" type="submit">Загруженные файлы</button>
+    </form>
+  </div>
+</div>
+
+</body>
+
+</html>
+
+
+
