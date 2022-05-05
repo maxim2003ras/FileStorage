@@ -5,17 +5,36 @@
 <head>
     <title>All files</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/home.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{../static/assets/css/files.css}" />
 </head>
 
 <body>
 
-<h2>All Uploaded Files:</h2>
-<ul>
-    <li th:each="file : ${files}">
-        <a th:href="${file}" target="_blank" th:text="${file}"></a>
-    </li>
-</ul>
+<h2>Все загруженные файлы:</h2>
+<div class="container">
+    <ul>
+        <li th:each="file : ${files}">
+            <div class="file-name" th:text="${file.name}"></div>
+        </li>
+    </ul>
+    <ul>
+        <li th:each="file : ${files}">
+            <form action="#" th:action="${file.url}">
+                <button type="submit" class="btn-1">Download</button>
+            </form>
+<!--                <a th:href="${file.url}" class="btn btn-white btn-animate">Скачать</a>-->
+        </li>
+    </ul>
+    <ul>
+        <li th:each="file : ${files}">
+            <form action="#" th:action="${file.url}" th:method="post">
+                <input type="hidden" name="_method" value="delete" />
+                <button type="submit" class="btn-1">Delete</button>
+            </form>
+            <!--                <a th:href="${file.url}" class="btn btn-white btn-animate">Скачать</a>-->
+        </li>
+    </ul>
+</div>
 
 </body>
 

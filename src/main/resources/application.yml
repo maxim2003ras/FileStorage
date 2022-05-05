@@ -1,4 +1,8 @@
 spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
   jpa:
     hibernate:
       ddl-auto: update
@@ -13,5 +17,7 @@ spring:
       file-size-threshold: 2KB
       max-request-size: 215MB
 
+
 server:
   port: 8081
+

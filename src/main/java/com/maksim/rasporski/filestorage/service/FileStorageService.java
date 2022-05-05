@@ -46,4 +46,7 @@ public class FileStorageService {
         return fileDBRepository.findByUser(userRepository.findByEmail(userDetails.getUsername()).get()).stream();
     }
 
+    public void deleteFileById(final String id) {
+        fileDBRepository.deleteById(id);
+    }
 }
