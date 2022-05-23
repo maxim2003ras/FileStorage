@@ -32,6 +32,7 @@ public class FileStorageService {
     }
 
     public FileDB store(MultipartFile file, final UserDetails userDetails) throws IOException {
+        if (file.isEmpty()) throw new IOException();
         AppUser user = userRepository.findByEmail(userDetails.getUsername()).get();
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         FileDB FileDB = new FileDB(fileName, file.getContentType(), file.getBytes(), user);

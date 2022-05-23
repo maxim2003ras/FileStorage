@@ -1,0 +1,13 @@
+body {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.file-text {
+    color: white;
+    font-size: 40px;
+    font-family: sans-serif;
+}

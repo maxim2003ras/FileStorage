@@ -33,12 +33,21 @@ a {
     font-size: 20px;
     margin-bottom: 38px;
     margin-top: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
+    text-overflow: ellipsis;
+
+}
+.file-name:hover {
+    /* Цвет фона */
+    white-space: normal; /* Обычный перенос текста */
 }
 
 .container {
     margin-top: 40px;
     display: flex;
-    width: 700px;
+    width: 800px;
     justify-content: space-between;
 }
 
@@ -72,5 +81,6 @@ button {
     outline		     : none;
 
 }
+
 
 

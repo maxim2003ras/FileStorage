@@ -18,6 +18,8 @@ public class MvcConfig implements WebMvcConfigurer {
     public void addViewControllers(final ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
         registry.addViewController("/home").setViewName("home");
+        registry.addViewController("/fileOK").setViewName("fileOK");
+        registry.addViewController("/fileBAD").setViewName("upload-error");
     }
 
     @Override

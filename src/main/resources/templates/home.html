@@ -15,7 +15,8 @@
 <div class="all-buttons">
   <div class="add-file-button">
     <form th:action="@{/upload}" enctype="multipart/form-data" method="post">
-      <input type="file" name="file"> <br/><br/>
+      <input type="file" name="file" id="file" class="inputfile" />
+      <label for="file">Выбрать файл</label>
       <button class="button-5" role="button" type="submit">Добавить файл</button>
     </form>
   </div>

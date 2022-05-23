@@ -37,12 +37,12 @@ public class FileController {
     }
 
     @PostMapping("/upload")
-    public ResponseEntity uploadFile(@RequestParam("file") MultipartFile file, @AuthenticationPrincipal UserDetails userDetails) {
+    public String uploadFile(@RequestParam("file") MultipartFile file, @AuthenticationPrincipal UserDetails userDetails) {
         try {
             fileStorageService.store(file, userDetails);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        } catch (IOException e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).build();
+            return "fileOK";
+        } catch (Exception e) {
+            return "upload-error";
         }
     }
 
